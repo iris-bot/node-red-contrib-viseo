@@ -7,7 +7,7 @@ This node is part of project [node-red-contrib-viseo](https://github.com/NGRP/no
 ## Quick Start
 
 ```
-npm install node-red-contrib-viseo-google-speech
+npm install node-red-contrib-viseo-google-speech-ptbr
 ```
 
 ## Getting Help
@@ -30,6 +30,7 @@ This project is a creation of [Jean-Philippe Encausse](http://www.encausse.net) 
 
 - Jean-Philippe Encausse [@jpencausse](https://twitter.com/jpencausse)
 - Klervi Menoret [@Klervix](https://github.com/Klervix)
+- Marcos Lohmann [@mcloh]
 
 
 ## Copyright and license
