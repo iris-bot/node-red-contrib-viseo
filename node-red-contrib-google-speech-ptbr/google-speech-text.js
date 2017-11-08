@@ -17,7 +17,7 @@ module.exports = function(RED) {
         start(RED, node, config);
         this.on('input', (data)  => { input(node, data, config, key.credentials) });
     }
-    RED.nodes.registerType("google-speech-text", register, {});
+    RED.nodes.registerType("google-speech-text-br", register, {});
 }
 
 let CLIENTS = {}
@@ -30,7 +30,8 @@ const input = (node, data, cfg, credentials) => {
     let buffer  = helper.getByString(data, cfg.input || 'payload');
     if (typeof buffer === 'string') { buffer = fs.readFileSync(buffer) }
 
-    let config  = { encoding: 'LINEAR16', sampleRateHertz: 16000, languageCode: 'pt-BR', maxAlternatives:5, profanityFilter:false};
+    let DefaultConfig  = { encoding: 'LINEAR16', sampleRateHertz: 16000, languageCode: 'pt-BR', maxAlternatives:5, profanityFilter:false};
+    let config = Object.assign(DefaultConfig, (confi.extraConfigs? eval("("+confi.extraConfigs+")"): {}));
     let audio   = { content: buffer.toString('base64') };
     let request = { audio, config };
 
